@@ -23,6 +23,12 @@ if edad<25:
 else:
     print('Denegado')
 
-while True:
-    if edad==0:
-        break 
+
+
+Colores=['Azul','Rojo','Verde','Amarillo','Negro']
+print(Colores[2])
+Numeros=[4,6,8,5,4,3,2,1,14,54]
+print(len(Numeros))
+print(max(Numeros))
+print(min(Numeros))
+print(sum(Numeros))
