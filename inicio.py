@@ -10,3 +10,11 @@ print (5+8)
 print(max("Python"))
 print(min("Python"))
 print(len("Python"))
+materia='Programacion Avanzada'
+X=5.5
+Y=8
+print(materia)
+nombre= input ('Ingrese su nombre completo')
+print(nombre)
+edad= input ('ingrese su edad')
+print(edad)
