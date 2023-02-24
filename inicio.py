@@ -15,5 +15,14 @@ y=7
 print(materia)
 nombre= input('Ingrese su nombre completo')
 print(nombre)
-edad= input('Ingreses su Edad')
+edad= int (input('Ingreses su Edad'))
 print(edad)
+if edad<= 25 :
+    print('Aceptado')
+else :
+    print('Denegado')
+
+while True:
+    if edad==0:
+        break
+
