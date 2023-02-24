@@ -15,5 +15,11 @@ y=7
 print(materia)
 nombre=input("ingrese su nombre completo")
 print(nombre)
-edad=input("ingrese su edad")
+edad=int(input("ingrese su edad"))
 print(edad)
+if edad<=25:
+    print("aceptado")
+else:
+    print("denegado")
+colores=["rojo","azul","negro","amarillo"]
+print(colores[2])
