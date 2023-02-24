@@ -9,3 +9,11 @@ print(9>4)
 print(max("Python"))
 print(min("Python"))
 print(len('Python'))
+materia='Programacion Avanzada'
+x=5.5
+y=7
+print(materia)
+nombre= input('Ingrese su nombre completo')
+print(nombre)
+edad= input('Ingreses su Edad')
+print(edad)
