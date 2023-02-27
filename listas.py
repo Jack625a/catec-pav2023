@@ -18,3 +18,13 @@ listaconvertida=tuple(colores)
 print (listaconvertida)
 tuplanueva=tuplafinal+listaconvertida
 print ("union de lista convertida con tupla", tuplanueva)
+numeros=(1,5,6,788,69)
+prinf=("tupla de nueros: " , numeros)
+numero1, numero2, numero3, numero4, numero5=numeros
+print(numero1)
+print(numero2)
+print(numero3)
+print(numero4)
+print(numero5)
+numero1=89
+print("variable numero1 actualizado",numero1)
