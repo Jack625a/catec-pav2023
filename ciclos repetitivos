@@ -25,3 +25,14 @@ while (q<=10):
     x=y
     y=sumatoria
     sumatoria=x+y
+# Ejercicio 5 -serie fibonaci en for
+    print("serie de fibonaci")
+a=0
+b=1
+reultado=1
+for i in (1,11):
+    print (a)
+    a=b
+    b=resultado
+    resultado=a+b
+    
