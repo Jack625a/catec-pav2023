@@ -14,11 +14,14 @@ while num1>=1:
     print(num1)
     num1-=1
 #serie fibonaci
+print("serie fibonaci")
 x=0
 y=1
 q=1
-while q<=10:
-    print(y)
-    x+y==x
-    y=y
-    q+=1
+sumatoria=1
+while (q<=10):
+    q +=1
+    print(x)
+    x=y
+    y=sumatoria
+    sumatoria=x+y
