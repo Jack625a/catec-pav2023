@@ -1,0 +1,8 @@
+estudiante={"nombre":"jhonatan","edad":"28","ci":"7417097","carrera":"sistemas informaticos"}
+print(estudiante)
+print(estudiante["nombre"])
+print(["carrera"])
+esti1=("est1")
+est1=("juan")
+print(est1)
+

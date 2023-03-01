@@ -1,0 +1,27 @@
+#Ejercicio 1 - NUMEROS DEL 1 AL 100 
+numeros=1
+while numeros<=100:
+    print(numeros)
+    numeros+=1
+#Ejercicio 2 - Numerospares del 1 al 100
+pares=2
+while pares<=100:
+    print(pares)
+    pares+=2
+#Ejercicio 3 - mostrar los numeros del 10 al 1
+numero=10
+while numero>=1:
+    print(numero)
+    numero-=1
+#Ejecicio 4 - Serie de fibonaci
+print("serie de fibonaci")
+x=0
+y=1
+q=1
+sumatoria=1
+while (q<=10):
+    q +=1
+    print (x)
+    x=y
+    y=sumatoria
+    sumatoria=x+y
