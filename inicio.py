@@ -24,5 +24,3 @@ else :
 
 while True:
     if edad==0:
-        break
-
