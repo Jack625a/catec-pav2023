@@ -13,10 +13,10 @@ while pares<=100:
     print(pares)
     pares+=2
 #lista de 1 al 10 en for
-pares=2
+pares=1
 for i in range(1,10):
     print(pares)
-    pares+=2
+    pares+=1
 #serie fibonaci
 print("serie fibonaci")
 x=0
