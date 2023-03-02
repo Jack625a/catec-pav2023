@@ -5,11 +5,11 @@ if numero %2 ==0:
 else:
     print("el numero ingresado es inpar")
 #ejercicio 2 -calcular el numero mayor entre dos numeros
-num=int(input("Ingrese un Nuero"))
-num=int(input("Ingrese un Nuero"))
+num=int(input("Ingrese un Numero"))
+num=int(input("Ingrese un Numero"))
 if num1<num2
     print("El numero mayor es: ", num1)
-elif num2>num1:
+elif num1>num2:
     print("El numero menor es: ", num2)
 else:
-    print("Los numeros ingresados sn iguales")
+    print("Los numeros ingresados son iguales")
