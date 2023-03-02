@@ -40,3 +40,7 @@ for i in range(1,21):
     a=b
     b=resultado
     resultado=a+b
+
+#Numeros del 10 al 1
+for i in range (11,0,-1):
+    print(i)
