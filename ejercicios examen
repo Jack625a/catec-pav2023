@@ -1,0 +1,31 @@
+# Ejercicio 1 - suma 100 primeron numeros 1- 100
+suma=0
+for i in range (1,101):
+    suma +=i
+    print("suma de los numeros del 1 al 100 es: ", suma)
+    #ejercicio 2 -30 primeros numeros pares
+    for i in range (1,31):
+        if i %2!=0:
+            print("numero impar:", i)
+#CREAR UN DICCIONEARIO DE LA MATERIA PROGRAMACION ABANSADA CON LOS SIGUIENTES DATOS
+#DICCIONARIO: estudiante-> nombre, edad,ci, carrera
+estudiantes={"estudiante1":{"NOMBRE":"LIMBERTH","EDAD":21,"CI":7345660,"carrera":" sistemas informaticos"}},
+{"estudiante2":{"NOMBRE":"jhonatan ","EDAD":21,"CI":7317458,"carrera":" sistemas informaticos"}},
+{"estudiante3":{"NOMBRE":"david","EDAD":23,"CI":7317133,"carrera":" sistemas informaticos"}},
+{"estudiante4":{"NOMBRE":"nayeli","EDAD":20,"CI":7354660,"carrera":" sistemas informaticos"}},
+{"estudiante5":{"NOMBRE":"isac","EDAD":21,"CI":7657160,"carrera":" sistemas informaticos"}},
+{"estudiante6":{"NOMBRE":"brandon","EDAD":2,"CI":7398160,"carrera":" sistemas informaticos"}}
+#pedir al usuario que ingrese que desea buscar
+edadBusqueda=int(input("ingrese la edad que desea buscar: "))
+#buscamos los estudiantes con la edad ingresada por teclado
+estudianteBuscado=[]
+for estudiante,info in estudiantes.items():
+    if info["edad"]==edadBusqueda:
+        estudianteBuscado. append(estudiante)
+#Imprimir los resultados obtenidos
+if len(estudianteBuscado)==0:
+    print("no se encontraron estudiantes con la edad ingresada ", edadBusqueda, "años")
+else:
+    print("Estudiantes con la edad ", edadBusqueda, "años")
+    for Estudiantes in estudianteBuscado:
+        print("-",estudiantes[estudiante]["nombre"])
