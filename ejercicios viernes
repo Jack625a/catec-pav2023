@@ -1,0 +1,34 @@
+#crear un diccionario para una tienda, en los cuales los cuales se agregaran
+#los productos se ingresaran por teclado
+#tienda-> productos: id, nombre, precios, cantidad 
+#solamente acepte ingresar 20 productos
+
+#crearemos nuestro diccionario vasio.
+tienda={}  # diccionario 
+#solicitar al usuario que ingrese los 20 productos
+for i in range (1,21):
+    #verificacion de los 20 productos
+    if len(tienda)==20:
+        print("ya se agregaron los 20 productos a la tienda")
+        break
+#solicitamos el ingreso de nuevos productos 
+print(" ingrese los datos del producto" ,i, "o presione enter para salir")
+id=input("id")
+#si el usuario agrag enter sin agregar nada al id salimos 
+if id=="":
+    print("sliendo del registro de productos")
+    break
+
+nombre=input("ingrese el nobre del producto: ")
+precio= float (input("ingrese el precio del producto: "))
+cantidad=int(input("ingrese la cantidad del producto: "))
+
+#agregarmos los productos ingresados al diccionario
+tienda(id={"nombre":nombre, "precio":precio,"cantidad":cantidad})
+
+#inprimimos en pantalla el diccionario completo
+print("los productos de la tienda son:")
+for id,producto in tienda. items ()
+print("ID":{id}- nombre:{producto['nombre']} - precio:{producto['precio']} - cantidad: {producto['cantidad']}")
+print("los products de la tienda son")
+for id 
