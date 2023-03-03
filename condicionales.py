@@ -1,9 +1,9 @@
 #Eercicio 1 -Numero par o Impar
 numero= int(input("Ingrese un numero"))
 if numero %2 ==0:
-    print("el numero ingresado es par")
+    print("El numero ingresado es par")
 else:
-    print("el numero ingresado es inpar")
+    print("El numero ingresado es impar")
 #ejercicio 2 -calcular el numero mayor entre dos numeros
 num=int(input("Ingrese un Numero"))
 num=int(input("Ingrese un Numero"))
