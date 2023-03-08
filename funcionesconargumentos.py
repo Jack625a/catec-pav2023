@@ -25,6 +25,6 @@ print("ORDENANDO LISTAS")
 numeros=[10,15,12,14,13,18,16,17,19,20,11]
 ordenar= sorted(numeros, key=lambda x:x)
 print(ordenar)
-pares= list(filter(lambda x:x % 2==0,numeros))
-print(pares)
+paress= list(filter(lambda x:x % 2==0,numeros))
+print(paress)
 
