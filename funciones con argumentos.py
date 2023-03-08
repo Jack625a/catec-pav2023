@@ -2,7 +2,6 @@
 def saludar(nombre, mensaje="hola bienvenido"):
             print( mensaje +" "+ nombre)
 
-saludar("kevin")
 
 saludar("kevin")
 saludar("kevin","Buenos dias")
