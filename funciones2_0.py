@@ -20,6 +20,6 @@ print("la division es: ", suma(7,2))
 numeros=[45,4,8,42,13,1,69,78,5,17,6]
 ordenar= sorted(numeros, key=lambda x:x)
 print(ordenar)
-pares= sorted(list(filter(lambda x:x % 2==0,numeros)))
-print(pares)
+paress= sorted(list(filter(lambda x:x % 2==0,numeros)))
+print(paress)
     
