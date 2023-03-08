@@ -21,7 +21,7 @@ print("La division es :", dividir(9,7))
 numeros=[45,8,65,9,78,4,5,2,8,10]
 ordenar= sorted(numeros,key= lambda x:x)
 print(ordenar)
-pares= list(filter(lambda x:x % 2==0,numeros))
-print(pares)
+paress= list(filter(lambda x:x % 2==0,numeros))
+print(paress)
 
 
