@@ -5,6 +5,7 @@ print(7*45)
 print(8==5)
 print(4==4)
 print(4<2)
+<<<<<<< HEAD
 print(9>4)
 print(max("Python"))
 print(min("Python"))
@@ -30,3 +31,5 @@ print(len(numeros))
 print(min(numeros))
 print(max(numeros))
 print(sum(numeros))
+=======
+>>>>>>> c4a91e2925e73411c8a1d92a33c7d992b28eea79
