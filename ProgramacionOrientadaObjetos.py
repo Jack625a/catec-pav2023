@@ -32,7 +32,7 @@ perro=Animal("Cachuchin",2)
 gato=Animal("Olivia",3)
 caballo=Animal("Paco",1)
 
-print("Seleccione al animal que desea alimentar")
+print("Seleccione al animal que desea alimentar: ")
 print("Perro")
 print("Gato")
 print("Caballo")
