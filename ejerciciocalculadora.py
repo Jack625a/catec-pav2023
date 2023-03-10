@@ -26,7 +26,7 @@ if opcion == "oa":
         resultado=num1*num2
         print("el resultado de la multiplicacion es: ",resultado)
     elif operacion == "d":
-        resultado=num1-num2
+        resultado=num1/num2
         print("el resultado de la division es: ",resultado)
     else:
         print("seleccione una opcion valida")
