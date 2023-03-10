@@ -47,5 +47,6 @@ else:
     print("Estudiantes con edad de ", edadBusqueda, "años")
     for estudiante in estudianteBuscado:
         print("°",Estudiantes[estudiante]["nombre"])
+        
 
     
