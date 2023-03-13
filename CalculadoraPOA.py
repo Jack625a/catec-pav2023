@@ -89,35 +89,35 @@ class Calculadora:
         else:
             print("Error debe selccionar una opción valida")
 
-    def suma(self,num1,num2):
-        return num1+num2
-    def resta(self,num1,num2):
-        return num1-num2
-    def multiplicacion(self,num1,num2):
-        return num1*num2
-    def division(self,num1,num2):
-        if num2==0:
-            print("Error no se puede dividir entre cero")
-            return None
-        else:
-            return num1/num2
-    def seno(self,num3):
-        return math.sin(num3)
-    def coseno(self,num3):
-        return math.cos(num3)
-    def tangente(self,num3):
-        return math.tan(num3)
-    def area_circulo(self,radio):
-        return math.pi*radio**2
-    def area_triangulo(self,base,altura):
-        return (base*altura)/2
-    def area_rectangulo(self,base,altura):
-        return base*altura
-    def logaritmo_natural(self,num):
-        return math.log(num)
-    def logaritmo_10(self,num):
-        return math.log10(num)
-    def logaritmo_2(self,num):
-        return math.log2(num)
+def suma(self,num1,num2):
+    return num1+num2
+def resta(self,num1,num2):
+    return num1-num2
+def multiplicacion(self,num1,num2):
+    return num1*num2
+def division(self,num1,num2):
+    if num2==0:
+        print("Error no se puede dividir entre cero")
+        return None
+    else:
+        return num1/num2
+def seno(self,num3):
+    return math.sin(num3)
+def coseno(self,num3):
+    return math.cos(num3)
+def tangente(self,num3):
+    return math.tan(num3)
+def area_circulo(self,radio):
+    return math.pi*radio**2
+def area_triangulo(self,base,altura):
+    return (base*altura)/2
+def area_rectangulo(self,base,altura):
+    return base*altura
+def logaritmo_natural(self,num):
+    return math.log(num)
+def logaritmo_10(self,num):
+    return math.log10(num)
+def logaritmo_2(self,num):
+    return math.log2(num)
     
     
