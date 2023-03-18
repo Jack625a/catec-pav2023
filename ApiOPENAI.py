@@ -1,6 +1,6 @@
 import openai
 import time
-openai.api_key="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"
+openai.api_key="Sus Apis"
 
 print("Hola mi nombres PAV estoy aqui para resolver cualquier pregunta que tengas ¿En que puedo ayudarte? ")
 
