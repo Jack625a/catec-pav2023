@@ -1,15 +1,17 @@
 import openai
 import time
-openai.api_key="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"
 
-print("Hola mi nombres PAV estoy aqui para resolver cualquier pregunta que tengas ¿En que puedo ayudarte? ")
+openai.api_key="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"
+modelo="text-davinci-003"
+
+print("Hola bienvenido mi nombre es PAV y estare aqui para resolver cualquier duda que tengas. ")
 
 def obtener_respuesta(pregunta):
     respuesta=openai.Completion.create(
-        engine="text-davinci-003",
+        engine=modelo,
         prompt=pregunta,
-        temperature=0.5,
-        max_tokens=100,
+        temperature=0.8,
+        max_tokens=200,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0
@@ -17,6 +19,7 @@ def obtener_respuesta(pregunta):
     return respuesta.choices[0].text.strip()
 
 while True:
-    pregunta=input("Ingrese su pregunta: ")
+    pregunta=input("Cual es tu consulta que deseas resolver? : ")
     respuesta=obtener_respuesta(pregunta)
-    print(respuesta)
+    print("La respuesta a la pregunta: ",pregunta, "es: ", respuesta)
+    time.sleep(1)
