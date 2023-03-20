@@ -9,8 +9,7 @@ suma= lambda x,y:x+y
 print("La suma es :", suma(9,7))
 #Funciones Lambda para restar
 resta= lambda x,y:x-y
-print("La resta es :", resta(9,7))
- #Funciones Lambda para multiplicar
+print(" la resta es:", resta(7,2))
 multiplicar= lambda x,y:x*y
 print("La multiplicacion es :", multiplicar(9,7))
 #Funciones Lambda para dividir
