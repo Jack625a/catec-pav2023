@@ -1,6 +1,6 @@
 import speech_recognition as sr
 import webbrowser
-#funcion para reconocer la voz
+#funcion para reconocer la voz nuevo
 def recognize_speech():
     r=sr.Recognizer()
     with sr.Microphone(device_index=2) as source:
