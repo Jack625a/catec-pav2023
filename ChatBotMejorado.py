@@ -1,7 +1,7 @@
 import openai
 import time
 
-openai.api_key="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"
+openai.api_key="sus Apis"
 modelo="text-davinci-003"
 
 print("Hola bienvenido mi nombre es PAV y estare aqui para resolver cualquier duda que tengas. ")
