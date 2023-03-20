@@ -1,4 +1,3 @@
-import openai
 import time
 openai.api_key="Sus Apis"
 
