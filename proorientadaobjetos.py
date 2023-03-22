@@ -27,4 +27,3 @@ class animal:
     def presentarse(self):
         print("hola mi raza es: ", self.raza)
 
-animal1.animal
