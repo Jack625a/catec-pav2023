@@ -1,23 +1,26 @@
-#funciones con argumrntos
-def saludar(nombre, mensaje="hola bienvenido"):
-            print( mensaje +" "+ nombre)
+def saludar(nombre,mensaje='Hola bienvenida'):
+    print(mensaje+ " "+ nombre)
 
-saludar("kevin")
-saludar("kevin","Buenos dias")
+saludar('Nayeli')
+saludar('Nayeli','Buenos dias')
 
-#funciones Lambda
+#Funciones Lambda
 suma= lambda x,y:x+y
-print(" la suma es:", suma(7,2))
+print("La suma es :", suma(9,7))
+#Funciones Lambda para restar
 resta= lambda x,y:x-y
 print(" la resta es:", resta(7,2))
 multiplicar= lambda x,y:x*y
-print(" la multiplicacion es:", multiplicar(7,2))
+print("La multiplicacion es :", multiplicar(9,7))
+#Funciones Lambda para dividir
 dividir= lambda x,y:x/y
-print(" la divicion es:", dividir(7,2))
+print("La division es :", dividir(9,7))
 
-#ordenar una lista
-numeros=(45,4,8,42,13,1,69,78,5,17,6)
-ordenar=sorted(numeros,key=lambda x:x)
-print (ordenar)
-pares= list(filter(lambda x:x % 2==0,numeros))
-print(pares)
+#Ordenar una lista 
+numeros=[45,8,65,9,78,4,5,2,8,10]
+ordenar= sorted(numeros,key= lambda x:x)
+print(ordenar)
+paress= list(filter(lambda x:x % 2==0,numeros))
+print(paress)
+
+
