@@ -60,7 +60,7 @@ def open_website(texto):
         webbrowser.open("https://www.google.com/search?q=$texto")
     else:
         print("No tengo registro de esa busqueda")
-#Funcion para Realizar la busqueda en Google
+#Funcion para Realizar la busqueda en Googlee
 def buscar_google(busqueda):
     url="https://www.google.com/search?q=" +busqueda.replace(' ','+')
     webbrowser.open(url)
