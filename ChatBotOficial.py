@@ -78,22 +78,36 @@ def obtener_respuesta(pregunta):
     return respuesta.choices[0].text.strip()
 
 engine = pyttsx3.init()
-engine.setProperty('rate', 110)
-engine.setProperty('voce','spanish-mexico')
+engine.setProperty('rate', 130)
+voces_id="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_ES-MX_SABINA_11.0"
+engine.setProperty('voice',voces_id)
 
 def hablar(texto):
     engine.say(texto)
     engine.runAndWait()
 
-mensaje_bienvenida="¡Bienvenido al chatbot avanzado!. Mi nombre es PAV, Estamos encantados de ofrecerte una experiencia única con nuestras cinco opciones de servicio. Nuestro chatbot con OpenAI te brinda respuestas inteligentes y precisas a tus preguntas, mientras que la opción de reconocimiento de voz hace que la conversación sea aún más fluida y natural. Si necesitas resolver cálculos complejos, nuestra calculadora avanzada está a tu disposición. Si te gusta disfrutar de la música, nuestro chatbot te permite escuchar tus canciones favoritas con solo hablar. Finalmente, nuestra asistencia virtual te ayuda a solucionar problemas y realizar tareas cotidianas con facilidad. Estamos seguros de que encontrarás nuestra herramienta de chatbot avanzado convincente y útil. ¡Adelante, inténtalo!"
+mensaje_bienvenida="¡Bienvenido"
 hablar(mensaje_bienvenida)
+
+def menu_principal():
+    print("Seleccione una Opción")
+    print("1. ChatBot")
+    print("2. ChatBot mediante reconocimiento de voz")
+    print("3. Calculadora Avanzada")
+    print("4. Selector de musica")
+    print("5. Asistente Virtual")
+    mensaje_voz="Seleccione una Opción: Opción 1. ChatBot, Opción 2. ChatBot mediante reconocimiento de voz, Opción 3. Calculadora Avanzada, Opción 4. Selector de musica, Opción 5. Asistente Virtual"
+    hablar(mensaje_voz)
+    opcion=int(input(">: "))
 
 while True:
     #mostrar el menu disponible
     print("Seleccione una Opción")
     texto_Inicial="Seleccione una Opción"
     hablar(texto_Inicial)
+    print("Desea continuar con la guia por voz? 1.Para Continuar, 2. Para Desactivar")
     activarVoz="Desea continuar con la guia por voz? 1.Para Continuar, 2. Para Desactivar"
+    hablar(activarVoz)
     opcion_Voz=int(input("Seleccione la opción: "))
     if opcion_Voz==1:
         print("Seleccione una Opción")
@@ -107,7 +121,7 @@ while True:
         opcion=int(input(">: "))
 
         if opcion==1:
-            openai.api_key="sus Apis"
+            openai.api_key=""
             modelo="text-davinci-003"
 
             print("Hola bienvenido mi nombre es PAV y estare aqui para resolver cualquier duda que tengas. ")
@@ -118,17 +132,29 @@ while True:
                 respuesta=obtener_respuesta(pregunta)
                 print(">: ", respuesta)
                 time.sleep(1)
+                print("Desea continuar con el chatbot. 1. Para Continuar 2. Volver al menu")
+                mensaje_salidaChatbot="Desea continuar con el chatbot. 1. Para Continuar 2. Volver al menu"
+                hablar(mensaje_salidaChatbot)
+                continuacion=int(input(">: "))
+                if continuacion==2:
+                    break
         elif opcion==2:
             mensaje_chatbotvoz="Para poder utilizar el chatbot se realizara mediante el reconomiento de voz"
             hablar(mensaje_chatbotvoz)
             print("Para poder utilizar el chatbot se realizara mediante el reconomiento de voz")
-            openai.api_key="sus Apis"
+            openai.api_key=""
             modelo="text-davinci-003"
             while True:
                 texto=recognize_speech()
                 respuesta=obtener_respuesta(texto)
                 hablar(respuesta)
                 if 'apagar' in texto:
+                    break
+                print("Desea continuar con el chatbot. 1. Para Continuar 2. Volver al menu")
+                mensaje_salidaChatbot="Desea continuar con el chatbot. 1. Para Continuar 2. Volver al menu"
+                hablar(mensaje_salidaChatbot)
+                continuacion=int(input(">: "))
+                if continuacion==2:
                     break
         elif opcion ==3:
             #Funciones lambda para operaciones aritemeticas
@@ -148,108 +174,133 @@ while True:
             logaritmoN=lambda x:math.log(x)
             logaritmo10=lambda x:math.log10(x)
             logaritmo2=lambda x:math.log2(x)
+            while True:
+                print("Calculadora con funsion Lambda   PAV-2023")
+                print("Seleccione las operaciones que desea realiZAr")
+                print("Operaciones Ariteticas= OA")
+                print("Operaciones Trigonometricas= OT")
+                print("Operaciones Geometricas= OG")
+                print("Logaritmos= LO")
+                mensaje_calculadora="Seleccione las operaciones que desea realiZAr,Operaciones Ariteticas= OA, Operaciones Trigonometricas= OT, Operaciones Geometricas= OG, Logaritmos= LO "
+                hablar(mensaje_calculadora)
+                opcion=input("Ingrese la operacion que desea realiZar")
+                if opcion == "OA":
+                    print("Seleccione una operacion aritmetica")
+                    print("SUMA= S")
+                    print("RESTA= R")
+                    print("MULTIPLICACION= M")
+                    print("DIVISION= D")
+                    operacion=input("Ingrese una opción: ")
+                    num1=float(input("Ingrese un primer numero: "))
+                    num2=float(input("Ingrese un segundo numero: "))
+                    if operacion == "S":
+                        resultado=suma(num1,num2)
+                        print("El resultado de la suma es: ",resultado)
+                    elif operacion == "R":
+                        resultado=resta(num1,num2)
+                        print("El resultado de la resta es: ",resultado)
+                    elif operacion == "M":
+                        resultado=multiplicacion(num1,num2)
+                        print("El resultado de la multiplicación es: ",resultado)
+                    elif operacion == "D":
+                        resultado=division(num1,num2)
+                        print("El resultado de la division es: ",resultado)
+                    else:
+                        print("Seleccione una opción valida")
+                    print("Desea continuar con la calculadora. 1. Para Continuar 2. Volver al menu")
+                    mensaje_salidaChatbot="Desea continuar con la calculadora. 1. Para Continuar 2. Volver al menu"
+                    hablar(mensaje_salidaChatbot)
+                    continuacion=int(input(">: "))
+                    if continuacion==2:
+                        break
+                elif opcion == "OT":
+                    print("Seleccione una operación trigonometrica")
+                    print("Seno= SE")
+                    print("Coseno= CS")
+                    print("Tangente= TA")
+                    operacion=input("Ingrese la operacion que desea realiZar: ")
 
-            print("Calculadora con funsion Lambda   PAV-2023")
-            print("Seleccione las operaciones que desea realiZAr")
-            print("Operaciones Ariteticas= OA")
-            print("Operaciones Trigonometricas= OT")
-            print("Operaciones Geometricas= OG")
-            print("Logaritmos= LO")
-            mensaje_calculadora="Seleccione las operaciones que desea realiZAr,Operaciones Ariteticas= OA, Operaciones Trigonometricas= OT, Operaciones Geometricas= OG, Logaritmos= LO "
-            hablar(mensaje_calculadora)
-            opcion=input("Ingrese la operacion que desea realiZar")
-            if opcion == "OA":
-                print("Seleccione una operacion aritmetica")
-                print("SUMA= S")
-                print("RESTA= R")
-                print("MULTIPLICACION= M")
-                print("DIVISION= D")
-                operacion=input("Ingrese una opción: ")
-                num1=float(input("Ingrese un primer numero: "))
-                num2=float(input("Ingrese un segundo numero: "))
-                if operacion == "S":
-                    resultado=suma(num1,num2)
-                    print("El resultado de la suma es: ",resultado)
-                elif operacion == "R":
-                    resultado=resta(num1,num2)
-                    print("El resultado de la resta es: ",resultado)
-                elif operacion == "M":
-                    resultado=multiplicacion(num1,num2)
-                    print("El resultado de la multiplicación es: ",resultado)
-                elif operacion == "D":
-                    resultado=division(num1,num2)
-                    print("El resultado de la division es: ",resultado)
-                else:
-                    print("Seleccione una opción valida")
-            elif opcion == "OT":
-                print("Seleccione una operación trigonometrica")
-                print("Seno= SE")
-                print("Coseno= CS")
-                print("Tangente= TA")
-                operacion=input("Ingrese la operacion que desea realiZar: ")
+                    num3=float(input("Ingrese un numero: "))
+                    if operacion == "SE":
+                        resultado=seno(num3)
+                        print("El seno de ", num3, "es: ",resultado)
+                    elif operacion == "CS":
+                        resultado=conseno(num3)
+                        print("El coseno de ", num3, "es: ",resultado)
+                    elif operacion == "TA":
+                        resultado=tangente(num3)
+                        print("La tangente de ", num3, "es: ",resultado)
+                    else:
+                        print ("Error seleccione una opción habilitada")
+                    print("Desea continuar con la calculadora. 1. Para Continuar 2. Volver al menu")
+                    mensaje_salidaChatbot="Desea continuar con la calculadora. 1. Para Continuar 2. Volver al menu"
+                    hablar(mensaje_salidaChatbot)
+                    continuacion=int(input(">: "))
+                    if continuacion==2:
+                        break
+                elif opcion == "OG":
+                    print("Seleccione la operación geometrica que dese realiZar")
+                    print("Area del circulo= AC")
+                    print("Area del triangulo= AT")
+                    print("Area del rectangulo= AR")
+                    operacion=input("Ingrese una opcion para la operacion geometrica que desea realiZar")
+                    if operacion == "AC":
+                        radio=float(input("Ingrese el radio del circulo"))
+                        resultado=area_circulo(radio)
+                        print("El area del circulo del radio ingresado ",radio, " es: ", resultado)
+                    elif operacion == "AT":
+                        base=float(input("Ingrese la base del triangulo"))
+                        altura=float(input("Ingrese la altura del triangulo"))
+                        resultado=area_triangulo(base,altura)
+                        print("El area del triangulo es: ", resultado)
+                    elif operacion == "AR":
+                        base=float(input("Ingrese la base del rectangulo: "))
+                        altura=float(input("Ingrese la altura del rectangulo: "))
+                        resultado=area_rectangulo(base,altura)
+                        print("El area del rectangulo es: ", resultado)
+                    else:
+                        print("Error seleccione una opción valida")
+                    print("Desea continuar con la calculadora. 1. Para Continuar 2. Volver al menu")
+                    mensaje_salidaChatbot="Desea continuar con la calculadora. 1. Para Continuar 2. Volver al menu"
+                    hablar(mensaje_salidaChatbot)
+                    continuacion=int(input(">: "))
+                    if continuacion==2:
+                        break
+                elif opcion == "LO":
+                    print("Seleccione una operacion de logaritmos que desea calcular")
+                    print("Logaritmo Natural= LN")
+                    print("Logaritmo en base 10= L10")
+                    print("Logaritmo en base 2= L2")
+                    operacion=input("Ingrese la operacion logaritmica que desea realiZar: ")
+                    num=float(input("Ingrese un numero: "))
 
-                num3=float(input("Ingrese un numero: "))
-                if operacion == "SE":
-                    resultado=seno(num3)
-                    print("El seno de ", num3, "es: ",resultado)
-                elif operacion == "CS":
-                    resultado=conseno(num3)
-                    print("El coseno de ", num3, "es: ",resultado)
-                elif operacion == "TA":
-                    resultado=tangente(num3)
-                    print("La tangente de ", num3, "es: ",resultado)
-                else:
-                    print ("Error seleccione una opción habilitada")
-            elif opcion == "OG":
-                print("Seleccione la operación geometrica que dese realiZar")
-                print("Area del circulo= AC")
-                print("Area del triangulo= AT")
-                print("Area del rectangulo= AR")
-                operacion=input("Ingrese una opcion para la operacion geometrica que desea realiZar")
-                if operacion == "AC":
-                    radio=float(input("Ingrese el radio del circulo"))
-                    resultado=area_circulo(radio)
-                    print("El area del circulo del radio ingresado ",radio, " es: ", resultado)
-                elif operacion == "AT":
-                    base=float(input("Ingrese la base del triangulo"))
-                    altura=float(input("Ingrese la altura del triangulo"))
-                    resultado=area_triangulo(base,altura)
-                    print("El area del triangulo es: ", resultado)
-                elif operacion == "AR":
-                    base=float(input("Ingrese la base del rectangulo: "))
-                    altura=float(input("Ingrese la altura del rectangulo: "))
-                    resultado=area_rectangulo(base,altura)
-                    print("El area del rectangulo es: ", resultado)
-                else:
-                    print("Error seleccione una opción valida")
-            elif opcion == "LO":
-                print("Seleccione una operacion de logaritmos que desea calcular")
-                print("Logaritmo Natural= LN")
-                print("Logaritmo en base 10= L10")
-                print("Logaritmo en base 2= L2")
-                operacion=input("Ingrese la operacion logaritmica que desea realiZar: ")
-                num=float(input("Ingrese un numero: "))
-
-                if operacion == "LN":
-                    resultado=logaritmoN(num)
-                    print("El logaritmo natural de ", num, " es: ", resultado)
-                elif operacion == "L10":
-                    resultado=logaritmo10(num)
-                    print("El logaritmo en base 10 de ", num, " es: ", resultado)
-                elif operacion == "L2":
-                    resultado=logaritmo2(num)
-                    print("El logaritmo en base 2 de ", num, " es: ", resultado)
+                    if operacion == "LN":
+                        resultado=logaritmoN(num)
+                        print("El logaritmo natural de ", num, " es: ", resultado)
+                    elif operacion == "L10":
+                        resultado=logaritmo10(num)
+                        print("El logaritmo en base 10 de ", num, " es: ", resultado)
+                    elif operacion == "L2":
+                        resultado=logaritmo2(num)
+                        print("El logaritmo en base 2 de ", num, " es: ", resultado)
+                    else:
+                        print("Error debe selccionar una opción valida")
+                    print("Desea continuar con la calculadora. 1. Para Continuar 2. Volver al menu")
+                    mensaje_salidaChatbot="Desea continuar con la calculadora. 1. Para Continuar 2. Volver al menu"
+                    hablar(mensaje_salidaChatbot)
+                    continuacion=int(input(">: "))
+                    if continuacion==2:
+                        break
                 else:
                     print("Error debe selccionar una opción valida")
-            else:
-                print("Error debe selccionar una opción valida")
+
         elif opcion==4:
             while True:
                 texto=recognize_speech()
                 if "cerrar" in texto:
                     print("Apagando...")
                     break
-                elif "youtube" in texto:
+                elif "Comenzar" in texto:
                     print("¿Que musica quieres escuchar?")
                     mensaje_youtube="¿Que musica quieres escuchar?"
                     hablar(mensaje_youtube)
@@ -257,6 +308,24 @@ while True:
                     if music_query:
                         print("Busqueda en YouTube...")
                         buscar_yotube(music_query)
+                        print("Desea continuar con la reproducción de Musicas?. 1. Para Continuar 2. Volver al menu")
+                        mensaje_salidaChatbot="Desea continuar con la reproducción de Musicas?. 1. Para Continuar 2. Volver al menu"
+                        hablar(mensaje_salidaChatbot)
+                        continuacion=int(input(">: "))
+                        if continuacion==2:
+                            break
+                        else:
+                            print("¿Que musica quieres escuchar?")
+                            mensaje_youtube="¿Que musica quieres escuchar?"
+                            hablar(mensaje_youtube)
+                            music_query=recognize_speech()
+                            if music_query:
+                                print("Busqueda en YouTube...")
+                                buscar_yotube(music_query)
+                                print("Desea continuar con la reproducción de la musica?. 1. Para Continuar 2. Volver al menu")
+                                mensaje_salidaChatbot="Desea continuar con la reproducción de la musica?. 1. Para Continuar 2. Volver al menu"
+                                hablar(mensaje_salidaChatbot)
+                                continuacion=int(input(">: "))
         elif opcion==5:
              print("Hola soy tu asistente virtual, solamente dime que deseas buscar y yo te lo mostrare")
              mensaje_asistente="Hola soy tu asistente virtual, solamente dime que deseas buscar y yo te lo mostrare, inicia con la palabra clave buscar antes de tu busqueda que desees encontrar"
@@ -268,7 +337,13 @@ while True:
                     break
                 elif "buscar" in texto:
                     print("Busqueda en Google...")
-                    buscar_google(texto)            
+                    buscar_google(texto)    
+                    print("Desea continuar con el asistente virtual?. 1. Para Continuar 2. Volver al menu")
+                    mensaje_salidaChatbot="Desea continuar con el asistente virtual?. 1. Para Continuar 2. Volver al menu"
+                    hablar(mensaje_salidaChatbot)
+                    continuacion=int(input(">: "))
+                    if continuacion==2:
+                        break        
         
     else:
         print("Seleccione una Opción")
@@ -280,7 +355,7 @@ while True:
         opcion=int(input(">: "))
 
         if opcion==1:
-            openai.api_key="sus Apis"
+            openai.api_key=""
             modelo="text-davinci-003"
 
             print("Hola bienvenido mi nombre es PAV y estare aqui para resolver cualquier duda que tengas. ")
@@ -289,15 +364,27 @@ while True:
                 respuesta=obtener_respuesta(pregunta)
                 print(">: ", respuesta)
                 time.sleep(1)
+                print("Desea continuar con el chatbot. 1. Para Continuar 2. Volver al menu")
+                mensaje_salidaChatbot="Desea continuar con el chatbot. 1. Para Continuar 2. Volver al menu"
+                hablar(mensaje_salidaChatbot)
+                continuacion=int(input(">: "))
+                if continuacion==2:
+                    break
         elif opcion==2:
             print("Para poder utilizar el chatbot se realizara mediante el reconomiento de voz")
-            openai.api_key="sus Apis"
+            openai.api_key=""
             modelo="text-davinci-003"
             while True:
                 texto=recognize_speech()
                 respuesta=obtener_respuesta(texto)
                 hablar(respuesta)
                 if 'apagar' in texto:
+                    break
+                print("Desea continuar con el chatbot. 1. Para Continuar 2. Volver al menu")
+                mensaje_salidaChatbot="Desea continuar con el chatbot. 1. Para Continuar 2. Volver al menu"
+                hablar(mensaje_salidaChatbot)
+                continuacion=int(input(">: "))
+                if continuacion==2:
                     break
         elif opcion ==3:
             #Funciones lambda para operaciones aritemeticas
@@ -317,107 +404,131 @@ while True:
             logaritmoN=lambda x:math.log(x)
             logaritmo10=lambda x:math.log10(x)
             logaritmo2=lambda x:math.log2(x)
+            while True:
+                print("Calculadora con funsion Lambda   PAV-2023")
+                print("Seleccione las operaciones que desea realiZAr")
+                print("Operaciones Ariteticas= OA")
+                print("Operaciones Trigonometricas= OT")
+                print("Operaciones Geometricas= OG")
+                print("Logaritmos= LO")
 
-            print("Calculadora con funsion Lambda   PAV-2023")
-            print("Seleccione las operaciones que desea realiZAr")
-            print("Operaciones Ariteticas= OA")
-            print("Operaciones Trigonometricas= OT")
-            print("Operaciones Geometricas= OG")
-            print("Logaritmos= LO")
+                opcion=input("Ingrese la operacion que desea realiZar")
+                if opcion == "OA":
+                    print("Seleccione una operacion aritmetica")
+                    print("SUMA= S")
+                    print("RESTA= R")
+                    print("MULTIPLICACION= M")
+                    print("DIVISION= D")
+                    operacion=input("Ingrese una opción: ")
+                    num1=float(input("Ingrese un primer numero: "))
+                    num2=float(input("Ingrese un segundo numero: "))
+                    if operacion == "S":
+                        resultado=suma(num1,num2)
+                        print("El resultado de la suma es: ",resultado)
+                    elif operacion == "R":
+                        resultado=resta(num1,num2)
+                        print("El resultado de la resta es: ",resultado)
+                    elif operacion == "M":
+                        resultado=multiplicacion(num1,num2)
+                        print("El resultado de la multiplicación es: ",resultado)
+                    elif operacion == "D":
+                        resultado=division(num1,num2)
+                        print("El resultado de la division es: ",resultado)
+                    else:
+                        print("Seleccione una opción valida")
+                    print("Desea continuar con la calculadora. 1. Para Continuar 2. Volver al menu")
+                    mensaje_salidaChatbot="Desea continuar con la calculadora. 1. Para Continuar 2. Volver al menu"
+                    hablar(mensaje_salidaChatbot)
+                    continuacion=int(input(">: "))
+                    if continuacion==2:
+                        break
+                elif opcion == "OT":
+                    print("Seleccione una operación trigonometrica")
+                    print("Seno= SE")
+                    print("Coseno= CS")
+                    print("Tangente= TA")
+                    operacion=input("Ingrese la operacion que desea realiZar: ")
 
-            opcion=input("Ingrese la operacion que desea realiZar")
-            if opcion == "OA":
-                print("Seleccione una operacion aritmetica")
-                print("SUMA= S")
-                print("RESTA= R")
-                print("MULTIPLICACION= M")
-                print("DIVISION= D")
-                operacion=input("Ingrese una opción: ")
-                num1=float(input("Ingrese un primer numero: "))
-                num2=float(input("Ingrese un segundo numero: "))
-                if operacion == "S":
-                    resultado=suma(num1,num2)
-                    print("El resultado de la suma es: ",resultado)
-                elif operacion == "R":
-                    resultado=resta(num1,num2)
-                    print("El resultado de la resta es: ",resultado)
-                elif operacion == "M":
-                    resultado=multiplicacion(num1,num2)
-                    print("El resultado de la multiplicación es: ",resultado)
-                elif operacion == "D":
-                    resultado=division(num1,num2)
-                    print("El resultado de la division es: ",resultado)
-                else:
-                    print("Seleccione una opción valida")
-            elif opcion == "OT":
-                print("Seleccione una operación trigonometrica")
-                print("Seno= SE")
-                print("Coseno= CS")
-                print("Tangente= TA")
-                operacion=input("Ingrese la operacion que desea realiZar: ")
+                    num3=float(input("Ingrese un numero: "))
+                    if operacion == "SE":
+                        resultado=seno(num3)
+                        print("El seno de ", num3, "es: ",resultado)
+                    elif operacion == "CS":
+                        resultado=conseno(num3)
+                        print("El coseno de ", num3, "es: ",resultado)
+                    elif operacion == "TA":
+                        resultado=tangente(num3)
+                        print("La tangente de ", num3, "es: ",resultado)
+                    else:
+                        print ("Error seleccione una opción habilitada")
+                    print("Desea continuar con la calculadora. 1. Para Continuar 2. Volver al menu")
+                    mensaje_salidaChatbot="Desea continuar con la calculadora. 1. Para Continuar 2. Volver al menu"
+                    hablar(mensaje_salidaChatbot)
+                    continuacion=int(input(">: "))
+                    if continuacion==2:
+                        break
+                elif opcion == "OG":
+                    print("Seleccione la operación geometrica que dese realiZar")
+                    print("Area del circulo= AC")
+                    print("Area del triangulo= AT")
+                    print("Area del rectangulo= AR")
+                    operacion=input("Ingrese una opcion para la operacion geometrica que desea realiZar")
+                    if operacion == "AC":
+                        radio=float(input("Ingrese el radio del circulo"))
+                        resultado=area_circulo(radio)
+                        print("El area del circulo del radio ingresado ",radio, " es: ", resultado)
+                    elif operacion == "AT":
+                        base=float(input("Ingrese la base del triangulo"))
+                        altura=float(input("Ingrese la altura del triangulo"))
+                        resultado=area_triangulo(base,altura)
+                        print("El area del triangulo es: ", resultado)
+                    elif operacion == "AR":
+                        base=float(input("Ingrese la base del rectangulo: "))
+                        altura=float(input("Ingrese la altura del rectangulo: "))
+                        resultado=area_rectangulo(base,altura)
+                        print("El area del rectangulo es: ", resultado)
+                    else:
+                        print("Error seleccione una opción valida")
+                    print("Desea continuar con la calculadora. 1. Para Continuar 2. Volver al menu")
+                    mensaje_salidaChatbot="Desea continuar con la calculadora. 1. Para Continuar 2. Volver al menu"
+                    hablar(mensaje_salidaChatbot)
+                    continuacion=int(input(">: "))
+                    if continuacion==2:
+                        break
+                elif opcion == "LO":
+                    print("Seleccione una operacion de logaritmos que desea calcular")
+                    print("Logaritmo Natural= LN")
+                    print("Logaritmo en base 10= L10")
+                    print("Logaritmo en base 2= L2")
+                    operacion=input("Ingrese la operacion logaritmica que desea realiZar: ")
+                    num=float(input("Ingrese un numero: "))
 
-                num3=float(input("Ingrese un numero: "))
-                if operacion == "SE":
-                    resultado=seno(num3)
-                    print("El seno de ", num3, "es: ",resultado)
-                elif operacion == "CS":
-                    resultado=conseno(num3)
-                    print("El coseno de ", num3, "es: ",resultado)
-                elif operacion == "TA":
-                    resultado=tangente(num3)
-                    print("La tangente de ", num3, "es: ",resultado)
-                else:
-                    print ("Error seleccione una opción habilitada")
-            elif opcion == "OG":
-                print("Seleccione la operación geometrica que dese realiZar")
-                print("Area del circulo= AC")
-                print("Area del triangulo= AT")
-                print("Area del rectangulo= AR")
-                operacion=input("Ingrese una opcion para la operacion geometrica que desea realiZar")
-                if operacion == "AC":
-                    radio=float(input("Ingrese el radio del circulo"))
-                    resultado=area_circulo(radio)
-                    print("El area del circulo del radio ingresado ",radio, " es: ", resultado)
-                elif operacion == "AT":
-                    base=float(input("Ingrese la base del triangulo"))
-                    altura=float(input("Ingrese la altura del triangulo"))
-                    resultado=area_triangulo(base,altura)
-                    print("El area del triangulo es: ", resultado)
-                elif operacion == "AR":
-                    base=float(input("Ingrese la base del rectangulo: "))
-                    altura=float(input("Ingrese la altura del rectangulo: "))
-                    resultado=area_rectangulo(base,altura)
-                    print("El area del rectangulo es: ", resultado)
-                else:
-                    print("Error seleccione una opción valida")
-            elif opcion == "LO":
-                print("Seleccione una operacion de logaritmos que desea calcular")
-                print("Logaritmo Natural= LN")
-                print("Logaritmo en base 10= L10")
-                print("Logaritmo en base 2= L2")
-                operacion=input("Ingrese la operacion logaritmica que desea realiZar: ")
-                num=float(input("Ingrese un numero: "))
-
-                if operacion == "LN":
-                    resultado=logaritmoN(num)
-                    print("El logaritmo natural de ", num, " es: ", resultado)
-                elif operacion == "L10":
-                    resultado=logaritmo10(num)
-                    print("El logaritmo en base 10 de ", num, " es: ", resultado)
-                elif operacion == "L2":
-                    resultado=logaritmo2(num)
-                    print("El logaritmo en base 2 de ", num, " es: ", resultado)
+                    if operacion == "LN":
+                        resultado=logaritmoN(num)
+                        print("El logaritmo natural de ", num, " es: ", resultado)
+                    elif operacion == "L10":
+                        resultado=logaritmo10(num)
+                        print("El logaritmo en base 10 de ", num, " es: ", resultado)
+                    elif operacion == "L2":
+                        resultado=logaritmo2(num)
+                        print("El logaritmo en base 2 de ", num, " es: ", resultado)
+                    else:
+                        print("Error debe selccionar una opción valida")
+                    print("Desea continuar con la calculadora. 1. Para Continuar 2. Volver al menu")
+                    mensaje_salidaChatbot="Desea continuar con la calculadora. 1. Para Continuar 2. Volver al menu"
+                    hablar(mensaje_salidaChatbot)
+                    continuacion=int(input(">: "))
+                    if continuacion==2:
+                        break
                 else:
                     print("Error debe selccionar una opción valida")
-            else:
-                print("Error debe selccionar una opción valida")
         elif opcion==4:
             while True:
                 texto=recognize_speech()
                 if "cerrar" in texto:
                     print("Apagando...")
                     break
-                elif "youtube" in texto:
+                elif "comenzar" in texto:
                     print("¿Que musica quieres escuchar?")
                     mensaje_youtube="¿Que musica quieres escuchar?"
                     hablar(mensaje_youtube)
@@ -425,6 +536,25 @@ while True:
                     if music_query:
                         print("Busqueda en YouTube...")
                         buscar_yotube(music_query)
+                        print("Desea continuar con la reproducción de la musica?. 1. Para Continuar 2. Volver al menu")
+                        mensaje_salidaChatbot="Desea continuar con la reproducción de la musica?. 1. Para Continuar 2. Volver al menu"
+                        hablar(mensaje_salidaChatbot)
+                        continuacion=int(input(">: "))
+                        if continuacion==2:
+                            break
+                        else:
+                            print("¿Que musica quieres escuchar?")
+                            mensaje_youtube="¿Que musica quieres escuchar?"
+                            hablar(mensaje_youtube)
+                            music_query=recognize_speech()
+                            if music_query:
+                                print("Busqueda en YouTube...")
+                                buscar_yotube(music_query)
+                            print("Desea continuar con la reproducción de la musica?. 1. Para Continuar 2. Volver al menu")
+                            mensaje_salidaChatbot="Desea continuar con la reproducción de la musica?. 1. Para Continuar 2. Volver al menu"
+                            hablar(mensaje_salidaChatbot)
+                            continuacion=int(input(">: "))
+                            
         elif opcion==5:
              print("Hola soy tu asistente virtual, solamente dime que deseas buscar y yo te lo mostrare")
              mensaje_asistente="Hola soy tu asistente virtual, solamente dime que deseas buscar y yo te lo mostrare, inicia con la palabra clave buscar antes de tu busqueda que desees encontrar"
@@ -436,4 +566,10 @@ while True:
                     break
                 elif "buscar" in texto:
                     print("Busqueda en Google...")
-                    buscar_google(texto)            
+                    buscar_google(texto)   
+                    print("Desea continuar con el asistente virtual?. 1. Para Continuar 2. Volver al menu")
+                    mensaje_salidaChatbot="Desea continuar con el asistente virtual?. 1. Para Continuar 2. Volver al menu"
+                    hablar(mensaje_salidaChatbot)
+                    continuacion=int(input(">: "))
+                    if continuacion==2:
+                        break         
